@@ -12,11 +12,11 @@ A booth can be assigned to many groups. As a booth may be used multiple session 
 Each group is only presenting in one and only one booth.
 **Conclusion:** Need to create One-To-Many relationship between Booth to Group
 
-## Case 4
+### Case 4
 A Group can have many members (participant). A participant may join a group. But there are cases where a participant joining multiple group, but it doesn't really matter since the data can be kept multiple time (not a lot instance, so small matter).
 **Conclusion:** Need to create One-to-Many relationship between Group to Participant.
 
-## Case 5
+### Case 5
 Where should I place my Mark entity???
 
 ## Apps Entities
