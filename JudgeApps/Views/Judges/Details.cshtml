@@ -1,0 +1,33 @@
+﻿@model JudgeApps.ViewModel.JudgeBoothMarkViewModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<table>
+    <tr>
+        <td>Title: </td>
+        <td>@Model.Judge.Title</td>
+    </tr>
+    <tr>
+        <td>Name: </td>
+        <td>@Model.Judge.Name</td>
+    </tr>
+    <tr>
+        <td>Affiliation: </td>
+        <td>@Model.Judge.Affiliation</td>
+    </tr>
+    <tr>
+        <td>Booths Assigned: </td>
+        <td>
+            <ul>
+                @foreach (var b in Model.JudgeBoothMarks)
+                {
+                    <li>@b.BoothId</li>
+                }
+            </ul>
+        </td>
+    </tr>
+</table>

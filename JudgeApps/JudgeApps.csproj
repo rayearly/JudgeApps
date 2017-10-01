@@ -190,7 +190,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BoothController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JudgesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -198,6 +200,10 @@
     <Compile Include="Migrations\201709291219179_InitialModel.cs" />
     <Compile Include="Migrations\201709291219179_InitialModel.Designer.cs">
       <DependentUpon>201709291219179_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710010223251_ChangeMarkIdToOptionalInJunction.cs" />
+    <Compile Include="Migrations\201710010223251_ChangeMarkIdToOptionalInJunction.Designer.cs">
+      <DependentUpon>201710010223251_ChangeMarkIdToOptionalInJunction.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -211,8 +217,10 @@
     <Compile Include="Models\Group.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\JudgeBoothMarkViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-lumen.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -269,9 +277,13 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Judges\Index.cshtml" />
+    <Content Include="Views\Judges\JudgeForm.cshtml" />
+    <Content Include="Views\Judges\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Booth\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -289,6 +301,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201709291219179_InitialModel.resx">
       <DependentUpon>201709291219179_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710010223251_ChangeMarkIdToOptionalInJunction.resx">
+      <DependentUpon>201710010223251_ChangeMarkIdToOptionalInJunction.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,0 +1,34 @@
+﻿@model IEnumerable<JudgeApps.Models.Judge>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@Html.ActionLink("New Judge", "New", "Judges", null, new {@class = "btn btn-primary"})
+
+<table id="judges" class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Name</th>
+        <th>Affiliation</th>
+        <th colspan="2">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        @foreach (var j in Model)
+        {
+            <tr>
+                <td>@j.Title</td>
+                <td>@j.Name</td>
+                <td>@j.Affiliation</td>
+                <td>@Html.ActionLink("Details", "Details", "Judges", new { id = j.Id }, null)</td>
+                <td>@Html.ActionLink("Edit", "Edit", "Judges", new { id = j.Id }, null)</td>
+                <td>@Html.ActionLink("Assign Booth", "AssignBooth", "Booth", new { id = j.Id }, null)</td>
+            </tr>
+        }
+    </tbody>
+</table>

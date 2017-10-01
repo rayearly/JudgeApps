@@ -1,0 +1,38 @@
+﻿@model JudgeApps.Models.Judge
+@{
+    ViewBag.Title = "JudgeForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>JudgeForm</h2>
+
+@using (Html.BeginForm("Save", "Judges"))
+{
+    @Html.ValidationSummary()
+    <div class="form-group">
+        @Html.LabelFor(j => j.Title)
+        @Html.TextBoxFor(j => j.Title, new { @class = "form-control" })
+        @Html.ValidationMessageFor(j => j.Title)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(j => j.Name)
+        @Html.TextBoxFor(j => j.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(j => j.Name)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(j => j.Affiliation)
+        @Html.TextBoxFor(j => j.Affiliation, new { @class = "form-control" })
+        @Html.ValidationMessageFor(j => j.Affiliation)
+    </div>
+
+    @Html.HiddenFor(j => j.Id) <!--Check for 0 (new) or 1,2,3 (existing edit)-->
+    @Html.AntiForgeryToken()
+    
+    <button type ="submit" class="btn btn-primary">Save</button>
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

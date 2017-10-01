@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Web;
 
 namespace JudgeApps.Models
@@ -15,7 +16,7 @@ namespace JudgeApps.Models
         [Key, Column(Order = 1)]
         public int BoothId { get; set; }
 
-        public int MarkId { get; set; }
+        public int? MarkId { get; set; }
 
         public virtual Judge Judge { get; set; }
         public virtual Booth Booth { get; set; }
