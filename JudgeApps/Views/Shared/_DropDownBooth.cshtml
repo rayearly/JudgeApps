@@ -1,0 +1,12 @@
+﻿@using System.Diagnostics.PerformanceData
+@using Microsoft.Ajax.Utilities
+@using HtmlHelpers.BeginCollectionItem
+@model JudgeApps.ViewModel.JudgeBoothMarkViewModel
+<div class="recipient">
+    @using (Html.BeginCollectionItem("JudgeBoothMarks"))
+    {
+        @Html.LabelFor(b => b.JudgeBoothMarks)
+        @Html.DropDownListFor(m => m.Judge.JudgeBoothMark, new SelectList(Model.Booths, "Id", "BoothId", Model.JudgeBoothMarks), "--Select Booth--", new { @class = "form-control" })
+        @Html.ValidationMessageFor(b => b.Judge.JudgeBoothMark)
+    }
+</div>

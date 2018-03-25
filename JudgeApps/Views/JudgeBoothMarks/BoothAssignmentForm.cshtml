@@ -1,0 +1,57 @@
+﻿@using System.Diagnostics.PerformanceData
+@using Microsoft.Ajax.Utilities
+@model JudgeApps.ViewModel.JudgeBoothMarkViewModel
+
+@{
+    ViewBag.Title = "BoothAssignment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AssignBooth</h2>
+
+@using (Html.BeginForm("Save", "JudgeBoothMarks"))
+{
+    @Html.ValidationSummary()
+    <div class="form-group">
+        <h2>@Html.DisplayFor(j => j.Judge.Name, new { @class = "form-control", @disabled = "true" })</h2>
+    </div>
+
+    //<div id="BoothList">
+    //Html.LabelFor(b => b.JudgeBoothMarks)
+    //Html.DropDownListFor(m => m.Judge.JudgeBoothMark['#'].BoothId, new SelectList(Model.Booths, "Id", "BoothId", Model.JudgeBoothMarks['#'].BoothId), "--Select Booth--", new { @class = "form-control" })
+    //Html.ValidationMessageFor(b => b.Judge.JudgeBoothMark)
+    //</div>
+
+    <div id="BoothList">
+        @Html.Partial("_DropDownBooth")
+    </div>
+
+    <button type="button" id="add">Add Booth</button>
+
+    @Html.HiddenFor(m => m.Judge.Id)
+
+    @Html.AntiForgeryToken()
+    
+    <input type="hidden" name="test2" id="test2" value=0 runat="server"/>
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            var url = '@Url.Action("DropDownBoothPartialViewResult")';
+            var form = $('form');
+            var recipients = $('#recipients');
+            $('#add').click(function() {
+                $.get(url, function(response) {
+                    recipients.append(response);
+                    // Reparse the validator for client side validation
+                    form.data('validator', null);
+                    $.validator.unobtrusive.parse(form);
+                });
+            });
+        });
+    </script>  
+}

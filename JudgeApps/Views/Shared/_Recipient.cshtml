@@ -1,0 +1,16 @@
+﻿@model JudgeApps.Models.CashRecipientVm
+
+
+<div class="recipient">
+    @using (Html.BeginCollectionItem("recipients"))
+    {
+        @Html.HiddenFor(m => m.ID, new { @class = "id" })
+        @Html.LabelFor(m => m.Recipient)
+        @Html.TextBoxFor(m => m.Recipient)
+        //Html.ValidationMesssageFor(m => m.Recipient)
+        @Html.LabelFor(m => m.Amount)
+        @Html.TextBoxFor(m => m.Amount)
+        //Html.ValidationMesssageFor(m => m.Amount)
+        <button type="button" class="delete">Delete</button>
+    }
+</div>

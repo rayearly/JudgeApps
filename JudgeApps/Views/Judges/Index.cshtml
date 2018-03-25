@@ -27,7 +27,7 @@
                 <td>@j.Affiliation</td>
                 <td>@Html.ActionLink("Details", "Details", "Judges", new { id = j.Id }, null)</td>
                 <td>@Html.ActionLink("Edit", "Edit", "Judges", new { id = j.Id }, null)</td>
-                <td>@Html.ActionLink("Assign Booth", "AssignBooth", "Booth", new { id = j.Id }, null)</td>
+                <td>@Html.ActionLink("Assign Booth", "BoothAssignment", "JudgeBoothMarks", new { id = j.Id }, null)</td>
             </tr>
         }
     </tbody>

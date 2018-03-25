@@ -16,6 +16,6 @@ namespace JudgeApps.Models
 
         public string Affiliation { get; set; }
 
-        public ICollection<JudgeBoothMark> JudgeBoothMark { get; set; }
+        public IList<JudgeBoothMark> JudgeBoothMark { get; set; }
     }
 }

@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BeginCollectionItem, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BeginCollectionItem.1.2.1.0\lib\net35\BeginCollectionItem.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -190,8 +193,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\BoothController.cs" />
+    <Compile Include="Controllers\BoothsController.cs" />
+    <Compile Include="Controllers\CashRecipientVMController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JudgeBoothMarksController.cs" />
     <Compile Include="Controllers\JudgesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -205,9 +210,18 @@
     <Compile Include="Migrations\201710010223251_ChangeMarkIdToOptionalInJunction.Designer.cs">
       <DependentUpon>201710010223251_ChangeMarkIdToOptionalInJunction.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803250232320_TestCashVM.cs" />
+    <Compile Include="Migrations\201803250232320_TestCashVM.Designer.cs">
+      <DependentUpon>201803250232320_TestCashVM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803250235329_TestCashVM2.cs" />
+    <Compile Include="Migrations\201803250235329_TestCashVM2.Designer.cs">
+      <DependentUpon>201803250235329_TestCashVM2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Booth.cs" />
+    <Compile Include="Models\CashRecipientVm.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Judge.cs" />
     <Compile Include="Models\JudgeBoothMark.cs" />
@@ -280,6 +294,17 @@
     <Content Include="Views\Judges\Index.cshtml" />
     <Content Include="Views\Judges\JudgeForm.cshtml" />
     <Content Include="Views\Judges\Details.cshtml" />
+    <Content Include="Views\JudgeBoothMarks\BoothAssignmentForm.cshtml" />
+    <Content Include="Views\Shared\_DropDownBooth.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Collection.cshtml" />
+    <Content Include="Views\Shared\_Recipient.cshtml" />
+    <Content Include="Views\CashRecipientVM\Index.cshtml" />
+    <Content Include="Views\CashRecipientVM\Create.cshtml" />
+    <Content Include="Views\Booths\Create.cshtml" />
+    <Content Include="Views\Booths\Delete.cshtml" />
+    <Content Include="Views\Booths\Details.cshtml" />
+    <Content Include="Views\Booths\Edit.cshtml" />
+    <Content Include="Views\Booths\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -304,6 +329,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710010223251_ChangeMarkIdToOptionalInJunction.resx">
       <DependentUpon>201710010223251_ChangeMarkIdToOptionalInJunction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803250232320_TestCashVM.resx">
+      <DependentUpon>201803250232320_TestCashVM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803250235329_TestCashVM2.resx">
+      <DependentUpon>201803250235329_TestCashVM2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -27,6 +27,7 @@ namespace JudgeApps.Models
         public DbSet<JudgeBoothMark> JudgeBoothMark { get; set; }
         public DbSet<Group> Participants { get; set; }
         public DbSet<Participant> Members { get; set; }
+        public DbSet<CashRecipientVm> CashRecipientVms { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

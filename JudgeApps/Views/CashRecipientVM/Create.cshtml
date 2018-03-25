@@ -1,0 +1,44 @@
+﻿@model IEnumerable <JudgeApps.Models.CashRecipientVm>
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+@foreach(var recipient in Model)
+{
+    @Html.Partial("_Recipient", recipient)
+}
+@using (Html.BeginForm()) 
+{
+    <div id="recipients">
+        
+    </div>
+
+    <button id="add" type="button">Add</button>
+    <input type="submit" value="Save" />
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            var url = '@Url.Action("Recipient")';
+            var form = $('form');
+            var recipients = $('#recipients');
+            $('#add').click(function() {
+                $.get(url, function(response) {
+                    recipients.append(response);
+                    // Reparse the validator for client side validation
+                    form.data('validator', null);
+                    $.validator.unobtrusive.parse(form);
+                });
+            });
+        });
+    </script>
+}

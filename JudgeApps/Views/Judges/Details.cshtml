@@ -23,9 +23,22 @@
         <td>Booths Assigned: </td>
         <td>
             <ul>
-                @foreach (var b in Model.JudgeBoothMarks)
+                @if (Model.Judge.JudgeBoothMark == null)
                 {
-                    <li>@b.BoothId</li>
+                    <li>@Html.ActionLink("Assign Booth", "BoothAssignment", "JudgeBoothMarks", new { id = Model.Judge.Id }, null)</li>
+                }
+                else
+                {
+                    foreach (var b in Model.Judge.JudgeBoothMark)
+                    {
+                        foreach (var bid in Model.Booths)
+                        {
+                            if (b.BoothId == bid.Id)
+                            {
+                                <li>@bid.BoothId</li>
+                            }
+                        }
+                    }
                 }
             </ul>
         </td>
