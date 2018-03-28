@@ -44,11 +44,11 @@ namespace JudgeApps.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Save(Judge judge)
+        public ActionResult Save(Judge jvm, int id)
         {
             var viewModel = new JudgeBoothMarkViewModel
             {
-                Judge = judge,
+                Judge = jvm,
                 JudgeBoothMarks = _context.JudgeBoothMark.ToList(),
                 Booths = _context.Booths.ToList()
             };
@@ -58,15 +58,28 @@ namespace JudgeApps.Controllers
                 return View("BoothAssignmentForm", viewModel);
             }
 
-            if (judge.Id == 0)
+            if (jvm.Id == 0)
             {
-                _context.Judges.Add(judge);
+                //_context.JudgeBoothMark.Add(jvm);
             }
             else
             {
-                foreach (var booth in judge.JudgeBoothMark)
+                
+                //foreach (var booth in jvm.Booths)
+                //{
+                    //var i = 0;
+                   // while (i < jvm.Booths.Count)
+                   // {
+                        // Add booths into judgeboothmarks booth
+                    //    jvm.JudgeBoothMarks[i].Booth = booth;
+                    //}
+                    
+                //}
+
+                foreach (var booth in jvm.JudgeBoothMark)
                 {
-                    booth.JudgeId = judge.Id;
+                    booth.JudgeId = jvm.Id;
+                    //booth.BoothId = 3;
                     _context.JudgeBoothMark.Add(booth);
                 }
             }
@@ -76,9 +89,32 @@ namespace JudgeApps.Controllers
             return RedirectToAction("Index", "Judges");
         }
 
-        public PartialViewResult DropDownBoothPartialViewResult()
+        private void LoadPossibleRoles()
         {
-            return PartialView("_DropDownBooth", new JudgeBoothMarkViewModel());
+            var availableRoles = _context.Booths.ToList();
+
+            var selectItems = new List<SelectListItem>();
+
+            foreach (var role in availableRoles)
+            {
+                var listItem = new SelectListItem();
+                listItem.Value = role.Id.ToString();
+                listItem.Text = role.BoothId;
+                selectItems.Add(listItem);
+            }
+            ViewBag.PossibleRoles = selectItems;
+        }
+
+
+        public ActionResult DropDownBoothPartialViewResult()
+        {
+            //var viewModel = new JudgeBoothMarkViewModel
+            //{
+            //JudgeBoothMarks = _context.JudgeBoothMark.ToList(),
+            //Booths = _context.Booths.ToList()
+            //};
+            LoadPossibleRoles();
+            return PartialView("_DropDownBooth", new Booth());
         }
     }
 }

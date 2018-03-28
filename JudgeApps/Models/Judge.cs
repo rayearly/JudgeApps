@@ -17,5 +17,7 @@ namespace JudgeApps.Models
         public string Affiliation { get; set; }
 
         public IList<JudgeBoothMark> JudgeBoothMark { get; set; }
+
+        public virtual IList<Booth> Booths { get; set; }
     }
 }

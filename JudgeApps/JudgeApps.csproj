@@ -218,6 +218,10 @@
     <Compile Include="Migrations\201803250235329_TestCashVM2.Designer.cs">
       <DependentUpon>201803250235329_TestCashVM2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803271036375_changesonJudgesAddBoothsList.cs" />
+    <Compile Include="Migrations\201803271036375_changesonJudgesAddBoothsList.Designer.cs">
+      <DependentUpon>201803271036375_changesonJudgesAddBoothsList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Booth.cs" />
@@ -335,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803250235329_TestCashVM2.resx">
       <DependentUpon>201803250235329_TestCashVM2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803271036375_changesonJudgesAddBoothsList.resx">
+      <DependentUpon>201803271036375_changesonJudgesAddBoothsList.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,12 +1,16 @@
 ﻿@using System.Diagnostics.PerformanceData
+@using System.Web.Mvc.Html
 @using Microsoft.Ajax.Utilities
 @using HtmlHelpers.BeginCollectionItem
-@model JudgeApps.ViewModel.JudgeBoothMarkViewModel
-<div class="recipient">
-    @using (Html.BeginCollectionItem("JudgeBoothMarks"))
+@model JudgeApps.Models.Booth
+<div class="booths">
+    @using (Html.BeginCollectionItem("JudgeBoothMark"))
     {
-        @Html.LabelFor(b => b.JudgeBoothMarks)
-        @Html.DropDownListFor(m => m.Judge.JudgeBoothMark, new SelectList(Model.Booths, "Id", "BoothId", Model.JudgeBoothMarks), "--Select Booth--", new { @class = "form-control" })
-        @Html.ValidationMessageFor(b => b.Judge.JudgeBoothMark)
+
+        @Html.LabelFor(b => b.BoothId)
+        @Html.DropDownListFor(m => m.BoothId, ((IEnumerable<SelectListItem>)ViewBag.PossibleRoles), "--Select Booth--", new { @class = "form-control" })
+        @Html.ValidationMessageFor(b => b.BoothId)
+        <a href="#" class="deleteRow">X</a>
+    
     }
 </div>
